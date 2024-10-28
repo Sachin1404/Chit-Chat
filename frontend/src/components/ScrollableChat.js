@@ -21,7 +21,6 @@ const ScrollableChat = ({ messages }) => {
             {(isSameSender(messages, m, i, user._id) ||
               isLastMessage(messages, i, user._id)) && (
               <Tooltip label={m.sender.name} placement="bottom-start" hasArrow>
-                <ProfileModal user={user}>
                 <Avatar
                   mt="7px"
                   mr={1}
@@ -30,7 +29,6 @@ const ScrollableChat = ({ messages }) => {
                   name={m.sender.name}
                   src={m.sender.pic}
                 />
-                </ProfileModal>
               </Tooltip>
             )}
             {/* Message Container */}
