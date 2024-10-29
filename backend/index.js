@@ -45,13 +45,13 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT;
 
+const https = require("https");
+const fs = require("fs");
+
 const options = {
   key: fs.readFileSync("/etc/letsencrypt/live/chit-chat.run.place/privkey.pem"),
   cert: fs.readFileSync("/etc/letsencrypt/live/chit-chat.run.place/fullchain.pem"),
 };
-
-const https = require("https");
-const fs = require("fs");
 
 const server = https.createServer(options, app);
 
