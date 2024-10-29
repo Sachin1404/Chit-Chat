@@ -45,10 +45,15 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT;
 
-const server = app.listen(
-  PORT,
-  console.log(`Server running on PORT ${PORT}...`)
-);
+const options = {
+  key: fs.readFileSync("/etc/letsencrypt/live/chit-chat.run.place/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/chit-chat.run.place/fullchain.pem"),
+};
+
+const https = require("https");
+const fs = require("fs");
+
+const server = https.createServer(options, app);
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
