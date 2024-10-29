@@ -53,7 +53,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "*",
+    origin: ["https://chit-chat.run.place", "https://www.chit-chat.run.place"],
     // credentials: true,
   },
 });
